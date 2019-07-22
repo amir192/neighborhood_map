@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Neighborhood Map of Jaipur</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-3">
+               <div class="row site-header">
+                  <div class="col-md-12">
+                     <header class="">
+                        <h1>Welcome to Jaipur Tourism !</h1>
+                        <form>
+                           <div class="form-group">
+                              <label for="searchbar">Filter places by Tourist spots</label>
+                              <input type="text" name="searchbar" id="searchbar" class="form-control" data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="Enter the name here">
+                           </div>
+                        </form>
+                     </header>
+                  </div>
+               </div>
+               <div>
+                  <ul data-bind="foreach: mapArray" class="main-nav">
+                     <li class="main-nav-item col-md-12 col-sm-6" data-bind="css: {active: selected},text: title, click: $parent.setSelected, visible:show"></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-9">
+               <div class="row">
+                  <div class="col-sm-12" id="map"></div>
+                  <div id="map-error">
+                     <h4 data-bind="text: errorDisplay"></h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/knockout.js"></script>
+      <script src="js/app.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsk_8bpuPk0gANGcXMYFWV-EdU7hJAc8A&callback=initMap" onerror="mapError()"></script>
+   </body>
+</html>
